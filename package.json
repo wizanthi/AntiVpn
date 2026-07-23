@@ -1,0 +1,27 @@
+{
+  "name": "wizanthi-anti-vpn",
+  "version": "2.0.0",
+  "description": "DDNet Anti-Abuse Security System",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --max-old-space-size=2048 dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.0",
+    "axios": "latest",
+    "teeworlds": "latest"
+  },
+  "optionalDependencies": {
+    "maxmind": "latest",
+    "mysql2": "latest",
+    "parquetjs-lite": "latest"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "latest",
+    "@types/node": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8303,
+    "password": "",
+    "rcon_password": "",
+    "rcon_username": ""
+  },
+  "discord": {
+    "webhook_url": "",
+    "alert_webhook_url": ""
+  },
+  "ipcheck": {
+    "rate_limit_ms": 1500,
+    "cache_ttl_hours": 24,
+    "cache_max_entries": 5000,
+    "retry_attempts": 5,
+    "retry_delay_ms": 3000,
+    "max_parallel_checks": 50
+  },
+  "monitoring": {
+    "status_interval_seconds": 30,
+    "reconnect_delay_ms": 3000,
+    "max_reconnect_attempts": 10,
+    "hourly_reconnect": true,
+    "reconnect_interval_minutes": 60
+  },
+  "logs": {
+    "cleanup_interval_hours": 2,
+    "max_age_days": 7,
+    "keep_only_today": false
+  },
+  "bot": {
+    "nickname": "WAntiVpn",
+    "clan": "Security"
+  },
+  "admin": {
+    "prefix": "$",
+    "whitelisted_ips": []
+  },
+  "impossible_travel": {
+    "enabled": true,
+    "use_soft_match": false
+  },
+  "auto_ban": {
+    "enabled": true,
+    "mode": "autoban",
+    "ban_duration_minutes": 0,
+    "ban_reason": "VPN/Proxy detected. Appeal: @WizanthiContactBot",
+    "quarantine": {
+      "enabled": true,
+      "duration_minutes": 60,
+      "review_webhook": true
+    }
+  },
+  "detection": {
+    "weights": {
+      "known_vpn_api": 20,
+      "hosting_asn": 30,
+      "residential_proxy": 25,
+      "tor": 60,
+      "bad_reverse_dns": 15,
+      "ip_reputation": 25,
+      "cidr_reputation": 20,
+      "ml_score_multiplier": 0.3,
+      "dataset_match": 30
+    },
+    "thresholds": {
+      "safe_max": 39,
+      "suspicious_max": 69,
+      "high_risk_max": 99
+    },
+    "min_independent_signals_for_ban": 3,
+    "cidr_reputation": {
+      "enabled": true,
+      "ipv4_prefix": 24,
+      "ipv6_prefix": 48,
+      "min_samples_for_score": 5,
+      "cache_ttl_minutes": 60
+    },
+    "reverse_dns": {
+      "enabled": true,
+      "keywords": [
+        "vpn",
+        "proxy",
+        "colo",
+        "hosting",
+        "vps",
+        "exit",
+        "tor"
+      ],
+      "cache_ttl_minutes": 720,
+      "timeout_ms": 2000
+    },
+    "network_age": {
+      "enabled": true,
+      "young_network_days": 180,
+      "cache_ttl_hours": 168,
+      "timeout_ms": 2500
+    },
+    "residential_proxy": {
+      "enabled": true,
+      "confidence_threshold": 70,
+      "cache_ttl_minutes": 360,
+      "weights": {
+        "api_signal": 25,
+        "network_type": 20,
+        "asn_reputation": 15,
+        "org_reputation": 10,
+        "historical_ip_reputation": 12,
+        "cidr_reputation": 15,
+        "reverse_dns": 10,
+        "ml_confidence": 15
+      },
+      "min_independent_signals": 2
+    },
+    "ip_reputation": {
+      "enabled": true
+    }
+  },
+  "datasets": {
+    "enabled": true,
+    "directory": "data/datasets",
+    "mode": "corroborate",
+    "reload_interval_minutes": 60,
+    "max_file_size_mb": 1024,
+    "max_zip_depth": 3,
+    "exclude_countries": [
+      "RU",
+      "UA"
+    ]
+  },
+  "storage": {
+    "type": "file",
+    "sqlite": {
+      "path": "data/antivpn.sqlite"
+    },
+    "mysql": {
+      "host": "",
+      "port": 1111,
+      "user": ",
+      "password": "",
+      "database": "",
+      "connection_limit": 5
+    }
+  },
+  "apis": {
+    "ipapi_api": {
+      "enabled": true
+    },
+    "ipwhois_api": {
+      "enabled": true
+    },
+    "ipapico_api": {
+      "enabled": true
+    },
+    "ipinfo_api": {
+      "enabled": true,
+      "api_key": ""
+    },
+    "vpnapi_api": {
+      "enabled": false,
+      "api_key": ""
+    },
+    "proxycheck_api": {
+      "enabled": true,
+      "api_key": ""
+    },
+    "ipquality_api": {
+      "enabled": false,
+      "api_key": ""
+    },
+    "abuseipdb_api": {
+      "enabled": true,
+      "api_key": ""
+    },
+    "ipapiis_api": {
+      "enabled": true
+    },
+    "rdap_api": {
+      "enabled": true
+    },
+    "getipintel_api": {
+      "enabled": false,
+      "api_key": ""
+    },
+    "iplocate_api": {
+      "enabled": true,
+      "api_key": ""
+    },
+    "ipregistry_api": {
+      "enabled": true,
+      "api_key": ""
+    }
+  }
+}
